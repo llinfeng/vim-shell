@@ -6,7 +6,7 @@ This plug-in aims to improve the integration between [Vim] [vim] and its environ
 
    * The `:Maximize` command and `<Control-F11>` mapping toggle Vim between normal and maximized state: They show/hide Vim's menu bar, tool bar and/or tab line without hiding the operating system task bar.
 
- * The `:Open` command and `<F6>` mapping know how to open file and directory names, URLs and e-mail addresses in your favorite programs (file manager, web browser, e-mail client, etc).
+ * The `:Open` command and `<F6>` mapping know how to open file and directory names, URLs and e-mail addresses in your favorite programs (file manager, web browser, e-mail client, etc). In this repo, the `:Open` user command is disabled to avoid a conflict with Vim's built-in `:Open` from `openPlugin.vim`. The `<F6>` mappings are commented out and are no longer supported unless you re-enable the command or remap them. This commit disables `:Open` and its `<F6>` mappings so the repo remains compatible with modern Vim.
 
  * The `xolox#misc#os#exec()` function enables other Vim plug-ins (like my [easytags.vim] [easytags] plug-in) to execute external commands in the background (i.e. asynchronously) *without opening a command prompt window on Windows*.
 
@@ -37,6 +37,8 @@ Note that on UNIX this command even works inside of graphical terminal emulators
 ### The `:Open` command
 
 The `:Open` command knows how to open files, directories, URLs and e-mail addresses. It's mapped to `<F6>` by default, see `g:shell_mappings_enabled` if you don't like this. You can provide a filename, URL or e-mail address as argument to the command or if there's a filename, URL or e-mail address under the text cursor that will be used. If both of those fail, the directory containing the current file will be opened. You can use the command as follows:
+
+Note: In this repo, the `:Open` user command is disabled to avoid clashing with Vim's built-in `:Open` from `openPlugin.vim`. The `<F6>` mappings are commented out and are no longer supported. This commit disables `:Open` and its `<F6>` mappings so the repo remains compatible with modern Vim. If you want the vim-shell behavior, re-enable the command in `plugin/shell.vim` and restore or remap the `<F6>` mappings to another command.
 
     :Open http://www.vim.org/
 
